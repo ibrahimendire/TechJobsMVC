@@ -29,5 +29,35 @@
     @{
         //TODO #4: Loop over the search results to display all job fields.
     }
+    @if (ViewBag.jobs != null)
 
+    {
+        <h3>@ViewBag.title</h3>
+
+        @foreach (var job in ViewBag.jobs)
+        {
+            <table>
+
+                <tr style="background-color:lightgreen">
+                    <td style="color:red">𝕀𝔻: @job.Id</td>
+                </tr>
+                <tr>
+                    <td><b style="color:blue">ℕ𝕒𝕞𝕖:</b> @job.Name</td>
+                </tr>
+                <tr>
+                    <td>𝔼𝕞𝕡𝕝𝕠𝕪𝕖𝕣: @job.Employer</td>
+                </tr>
+                <tr>
+                    <td>𝕃𝕠𝕔𝕒𝕥𝕚𝕠𝕟: @job.Location</td>
+                </tr>
+                <tr>
+                    <td>ℙ𝕠𝕤𝕚𝕥𝕚𝕠𝕟:@job.PositionType</td>
+                </tr>
+                <tr>
+                    <td>𝕊𝕜𝕚𝕝𝕝𝕤: @job.CoreCompetency</td>
+                </tr>
+
+            </table>
+        }
+    }
 </div>

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-
+using TechJobsMVC.Data;
+using TechJobsMVC.Models;
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace TechJobsMVC.Controllers
@@ -21,10 +22,28 @@ namespace TechJobsMVC.Controllers
 
 
 
-        public IActionResult Results()
+        public IActionResult Results(string searchType, string searchTerm)
         {
-           
-            return View();
+            ViewBag.searchtype = searchType;
+            ViewBag.seachterm = searchTerm;
+            List<Job> jobs;
+            if (searchTerm == null)
+            {
+
+                jobs = JobData.FindAll();
+                ViewBag.title = "All Jobs";
+            }
+
+            else
+            {
+                ViewBag.searchtype = searchType;
+                jobs = JobData.FindByColumnAndValue(searchType, searchTerm);
+                ViewBag.title = "𝐂ÃⓣᖇǤⓄ𝕋𝓨: " + searchType.ToLower() + " 🄰🄽🄳" + "  𝕪𝕠𝕦𝕣 𝕊𝕖𝕒𝕣𝕔𝕙𝕋𝕖𝕣𝕞:" + searchTerm.ToLower();
+            }
+
+            ViewBag.jobs = jobs;
+            ViewBag.columns = ListController.ColumnChoices;
+            return View("Index");
         }
     }
 }

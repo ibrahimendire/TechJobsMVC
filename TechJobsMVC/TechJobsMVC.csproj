@@ -9,5 +9,6 @@
     <Folder Include="Data\" />
     <Folder Include="Views\List\" />
     <Folder Include="Views\Search\" />
+    <Folder Include="wwwroot\images\" />
   </ItemGroup>
 </Project>

@@ -38,7 +38,7 @@ namespace TechJobsMVC.Controllers
             {
                 ViewBag.searchtype = searchType;
                 jobs = JobData.FindByColumnAndValue(searchType, searchTerm);
-                ViewBag.title = "𝐂ÃⓣᖇǤⓄ𝕋𝓨: " + searchType.ToLower() + " 🄰🄽🄳" + "  𝕪𝕠𝕦𝕣 𝕊𝕖𝕒𝕣𝕔𝕙𝕋𝕖𝕣𝕞:" + searchTerm.ToLower();
+                ViewBag.title = "𝐂𝕒𝕥𝕖𝕘𝕠𝕥𝕣𝕪: " + searchType.ToLower() + " 🄰🄽🄳" + "  𝕪𝕠𝕦𝕣 𝕊𝕖𝕒𝕣𝕔𝕙𝕋𝕖𝕣𝕞:" + searchTerm.ToLower();
             }
 
             ViewBag.jobs = jobs;
